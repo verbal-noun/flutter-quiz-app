@@ -7,7 +7,10 @@ void main () {
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text("Hello!"),
+      debugShowCheckedModeBanner: false,
+      home: Center(
+        child: Text("Hello"),
+      ),
     );
   }
 }
