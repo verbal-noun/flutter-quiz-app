@@ -9,6 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          title: Text("A Personality Quiz App"),
+        ),
         body: Column(
           children: [
             Text("Choose an ansewr"),
