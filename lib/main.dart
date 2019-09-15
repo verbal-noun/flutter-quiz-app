@@ -4,12 +4,27 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  void questionAns() {
-    print("You have pressed an answer");
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() {
+    return _MyAppState();
   }
+}
 
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+  void _questionAns() {
+    setState(() {
+      _questionIndex += 1;
+    });
+    print(_questionIndex);
+  }
+  @override  
   Widget build(BuildContext context) {
+    var questions = [
+      'What is your favorite color?',
+      'What is your favorite animal?'
+    ];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -18,10 +33,12 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text("Choose an ansewr"),
+            Text(
+              questions[_questionIndex]
+            ),
             RaisedButton(
               child: Text("Answer 1"),
-              onPressed: questionAns,
+              onPressed: _questionAns,
             ),
             RaisedButton(
               child: Text("Answer 2"),
@@ -29,7 +46,7 @@ class MyApp extends StatelessWidget {
             ),
             RaisedButton(
               child: Text("Answer 3"),
-              onPressed: questionAns,
+              onPressed: _questionAns,
             ),
           ],
         ),
